@@ -25,6 +25,7 @@ COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
 # Install Node.js + npm
 RUN curl -fsSL https://deb.nodesource.com/setup_20.x | bash - \
     && apt-get install -y nodejs \
+    && rm -rf /var/lib/apt/lists/*
 
 # Set working directory
 WORKDIR /var/www
